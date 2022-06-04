@@ -19,6 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+
+// pick a date util library
+import MomentUtils from '@date-io/moment';
 
 import './App.css';
 
@@ -57,7 +61,9 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+            <MuiPickersUtilsProvider utils={MomentUtils}>
+              <UserPage />
+            </MuiPickersUtilsProvider>
           </ProtectedRoute>
 
           <ProtectedRoute
